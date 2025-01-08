@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>為替レートチェッカー</title>
+    
+    <!-- PWAのマニフェスト -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- アイコン -->
+    <link rel="icon" href="icons/icon-192x192.png" type="image/png">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>為替レートチェッカー</h1>
+        <p>ベース通貨を選んで、ターゲット国名を入力してください。</p>
+        
+        <!-- ベース通貨選択 -->
+        <label for="baseCurrency">ベース通貨:</label>
+        <select id="baseCurrency">
+            <option value="JPY">日本円 (JPY)</option>
+            <option value="USD">米ドル (USD)</option>
+            <option value="EUR">ユーロ (EUR)</option>
+            <option value="GBP">英ポンド (GBP)</option>
+            <option value="CAD">カナダドル (CAD)</option>
+            <option value="AUD">オーストラリアドル (AUD)</option>
+            <option value="CNY">中国元 (CNY)</option>
+            <option value="INR">インドルピー (INR)</option>
+        </select><br>
+
+        <!-- ターゲット通貨（国名） -->
+        <label for="targetCurrency">ターゲット国名:</label>
+        <input type="text" id="targetCurrency" placeholder="例: 日本, アメリカ合衆国"><br>
+
+        <!-- ボタン -->
+        <button onclick="checkRate()">為替レートを取得</button>
+
+        <!-- 結果表示 -->
+        <p id="result"></p>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Service Workerの登録
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then((registration) => {
+                    console.log('Service Worker 登録成功:', registration);
+                })
+                .catch((error) => {
+                    console.log('Service Worker 登録失敗:', error);
+                });
+        }
+    </script>
+
+</body>
+</html>
 
