@@ -1,0 +1,21 @@
+{
+  "name": "為替レートチェッカー",
+  "short_name": "為替チェッカー",
+  "description": "選択した通貨の為替レートを確認できます。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4CAF50",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
